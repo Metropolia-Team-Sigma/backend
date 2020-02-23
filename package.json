@@ -4,6 +4,9 @@
   "description": "A Node.js project boilerplate",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
+    "setup-db": "node scripts/setup-database.js",
     "test": "eslint ."
   },
   "repository": {
@@ -16,13 +19,21 @@
     "url": "https://github.com/linuswillner/nodejs-boilerplate/issues"
   },
   "homepage": "https://github.com/linuswillner/nodejs-boilerplate#readme",
-  "dependencies": {},
+  "dependencies": {
+    "arangojs": "^6.13.0",
+    "bcrypt": "^4.0.0",
+    "dotenv-safe": "^8.2.0",
+    "fs-extra": "^8.1.0",
+    "require-directory": "^2.1.1",
+    "uuid": "^3.4.0"
+  },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.2"
   }
 }
