@@ -6,9 +6,8 @@ const hashPassword = async plaintext => {
   return bcrypt.hash(plaintext, salt)
 }
 
-module.exports = db => {
+module.exports = (db, collection) => {
   return async (owner, name, password) => {
-    const collection = db.collection('rooms')
     return collection.save({
       _key: uuid(),
       name: name,

@@ -1,9 +1,8 @@
-module.exports = db => {
-  return async (id, toUpdate) => {
-    const collection = db.collection('rooms')
-    const roomExists = await collection.documentExists(id)
+const roomExists = require('./roomExists')
 
-    if (!roomExists) throw new Error(`Room ${id} does not exist`)
+module.exports = (db, collection) => {
+  return async (id, toUpdate) => {
+    if (!roomExists()) throw new Error(`Room ${id} does not exist`)
     else return collection.update(id, toUpdate)
   }
 }
