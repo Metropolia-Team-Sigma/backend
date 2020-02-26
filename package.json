@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start-dev": "nodemon index.js",
+    "start-dev": "cross-env NODE_ENV=debug nodemon index.js",
     "setup-db": "node scripts/setup-database.js",
     "test": "eslint ."
   },
@@ -32,6 +32,7 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.20.1",
