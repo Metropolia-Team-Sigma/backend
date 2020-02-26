@@ -25,7 +25,7 @@ module.exports = () => {
       }, 3000)
 
       // Register event handlers
-      socket.on('request_room_join', async data => handlers.request_room_join(data, socket, db))
+      socket.on('request_room_join', async data => handlers.request_room_join(data, socket, socketCache, db))
       socket.on('error', err => handlers.error(err, socket))
       socket.on('disconnect', reason => handlers.disconnect(reason, socket, socketCache))
     })
