@@ -9,8 +9,16 @@ const generatePrefix = info => {
   return `${prefix} ${info.level}: ${info.message}`
 }
 
+let level
+
+switch (process.env.NODE_ENV) {
+  case 'debug': level = 'debug'; break
+  case 'silly': level = 'silly'; break
+  default: level = 'info'
+}
+
 const logger = winston.createLogger({
-  level: process.env.NODE_ENV === 'debug' ? 'silly' : 'info',
+  level,
   format: winston.format.combine(
     winston.format.colorize(),
     winston.format.simple(),
