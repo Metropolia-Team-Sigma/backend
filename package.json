@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-boilerplate",
+  "name": "sigma-backend",
   "version": "1.0.0",
-  "description": "A Node.js project boilerplate",
+  "description": "Sigma backend server",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/linuswillner/nodejs-boilerplate.git"
+    "url": "git+https://github.com/Metropolia-Team-Sigma/backend.git"
   },
-  "author": "Linus Willner <hello@linuswillner.me> (https://linuswillner.me)",
+  "author": "See authors in LICENSE",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/linuswillner/nodejs-boilerplate/issues"
+    "url": "https://github.com/Metropolia-Team-Sigma/backend/issues"
   },
-  "homepage": "https://github.com/linuswillner/nodejs-boilerplate#readme",
+  "homepage": "https://github.com/Metropolia-Team-Sigma/backend#readme",
   "dependencies": {
     "arangojs": "^6.13.0",
     "bcrypt": "^4.0.0",
