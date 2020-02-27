@@ -1,7 +1,7 @@
 const db = require('../db')
 const server = require('http').createServer()
 const io = require('socket.io')(server)
-const handlers = require('./handlers')
+const events = require('./events')
 
 // Initiate socket cache
 const socketCache = {}
@@ -24,10 +24,14 @@ module.exports = () => {
         }
       }, 3000)
 
+      // Define shared state across all event handlers
+      const globalState = { socket, socketCache, db }
+
       // Register event handlers
-      socket.on('request_room_join', async data => handlers.request_room_join(data, socket, socketCache, db))
-      socket.on('error', err => handlers.error(err, socket))
-      socket.on('disconnect', reason => handlers.disconnect(reason, socket, socketCache))
+      for (const event in events) {
+        const handler = events[event]
+        socket.on(event, eventParams => handler({ eventParams, ...globalState }))
+      }
     })
 
     const port = 3000
