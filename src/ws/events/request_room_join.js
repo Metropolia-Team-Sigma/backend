@@ -17,8 +17,8 @@ module.exports = async state => {
     socket.disconnect()
   } else {
     socket.join(eventParams.room)
-    socket.emit('room_joined', {})
-    socketCache[socket.id].hasJoined = true
+    socket.emit('room_join', {})
+    socketCache[socket.id].room = eventParams.room
     global.log.info(`Joined room ${eventParams.room}.`, { socket: socket.id })
   }
 }
