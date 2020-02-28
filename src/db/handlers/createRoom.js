@@ -14,7 +14,6 @@ module.exports = (db, collection) => {
       createdAt: new Date(),
       owner: owner,
       password: await hashPassword(password),
-      messages: [],
       members: [],
       bans: []
     }, { returnNew: true }).new
