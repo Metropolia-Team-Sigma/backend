@@ -43,7 +43,8 @@ module.exports = () => {
       const globalEvents = [
         'chat_join',
         'chat_leave',
-        'broadcast_key'
+        'broadcast_key',
+        'message'
       ]
 
       for (const event of globalEvents) {
