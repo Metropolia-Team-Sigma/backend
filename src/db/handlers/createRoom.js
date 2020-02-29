@@ -11,7 +11,7 @@ module.exports = (db, collection) => {
     return collection.save({
       _key: uuid(),
       name: name,
-      createdAt: new Date(),
+      createdAt: Date.now(),
       owner: owner,
       password: await hashPassword(password),
       members: [],
