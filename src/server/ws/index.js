@@ -1,4 +1,4 @@
-const db = require('../db')
+const db = require('../../db')
 const server = require('http').createServer()
 const io = require('socket.io')(server)
 const events = require('./events')
@@ -56,9 +56,8 @@ module.exports = () => {
       }
     })
 
-    const port = 3000
-    server.listen(port, () => {
-      global.log.info(`WebSocket server started on http://localhost:${port}.`)
+    server.listen(process.env.WS_PORT, () => {
+      global.log.info(`WebSocket server started on http://localhost:${process.env.WS_PORT}.`)
       resolve()
     })
   })
