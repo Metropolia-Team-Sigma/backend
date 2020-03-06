@@ -12,9 +12,8 @@ module.exports = () => {
       global.log.debug('Initialised connection. Waiting for room join...', { socket: socket.id })
 
       /*
-        We have to use this kind of "event ping-pong" here because the server-level
-        'connection' event doesn't have way to require event reception acknowledgement.
-        Acks can only be required on socket-level events, which this is not.
+        We have to use this kind of "event ping-pong" here because acks cannot be required
+        for io-level events, only socket level events.
       */
 
       // Add socket to cache
@@ -31,7 +30,7 @@ module.exports = () => {
       }, 3000)
 
       // Define shared state across all event handlers
-      const globalState = { socket, socketCache, db }
+      const globalState = { socket, socketCache }
 
       // Register local event handlers
       for (const event in events) {

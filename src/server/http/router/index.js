@@ -3,5 +3,6 @@ const router = require('express').Router()
 
 router.get('/:id', (req, res, next) => handlers.joinRoom(req, res, next))
 router.post('/create', (req, res, next) => handlers.createRoom(req, res, next))
+router.delete('/:id', (req, res, next) => handlers.deleteRoom(req, res, next))
 
 module.exports = router
