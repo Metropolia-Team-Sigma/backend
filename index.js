@@ -1,7 +1,13 @@
 // Load environment variables and global libraries
-require('dotenv-safe').config()
 require('colors')
 require('./src/log')
+
+try {
+  require('dotenv-safe').config()
+} catch (err) {
+  global.log.error(`Loading of environment values failed: ${err}`)
+  process.exit(1)
+}
 
 const checkDbConnection = require('./src/startup/checkDbConnection')
 const startHttpServer = require('./src/server/http')
