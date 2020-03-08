@@ -13,7 +13,6 @@ module.exports = async (req, res, next) => {
       res.status(404).send({ message: 'Not Found' })
     } else {
       const { password } = isHRI ? await getRoomByHRI(req.params.id) : await getRoom(req.params.id)
-      console.log(password)
       const passwordIsCorrect = await bcrypt.compare(req.query.p, password)
 
       if (passwordIsCorrect) res.status(200).send({ message: 'OK', address: `http://${process.env.WS_HOST}:${process.env.WS_PORT}` })
