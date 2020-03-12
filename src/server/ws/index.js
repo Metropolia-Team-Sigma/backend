@@ -1,4 +1,3 @@
-const db = require('../../db')
 const server = require('http').createServer()
 const io = require('socket.io')(server)
 const events = require('./events')
