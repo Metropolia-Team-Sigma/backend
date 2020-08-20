@@ -21,7 +21,7 @@
   "homepage": "https://github.com/Metropolia-Team-Sigma/backend#readme",
   "dependencies": {
     "arangojs": "^6.13.0",
-    "bcrypt": "^4.0.0",
+    "bcrypt": "^5.0.0",
     "colors": "^1.4.0",
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
